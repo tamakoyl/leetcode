@@ -12,31 +12,31 @@ import java.util.Stack;
 public class Solution {
     public boolean isSameTree(TreeNode p, TreeNode q) {
         // return iterateWay(p,q);
-        return compare(p,q);
+        return compare(p, q);
     }
 
-    public boolean compare(TreeNode left , TreeNode right){
+    public boolean compare(TreeNode left, TreeNode right) {
         //递归出口
-        if(left == null && right == null) return true;
-        if(left == null || right == null || left.val != right.val) return false;
+        if (left == null && right == null) return true;
+        if (left == null || right == null || left.val != right.val) return false;
 
         //左边
-        boolean l = compare(left.left,right.left);
-        boolean r = compare(left.right,right.right);
+        boolean l = compare(left.left, right.left);
+        boolean r = compare(left.right, right.right);
         return l && r;
     }
 
-    public boolean iterateWay(TreeNode p, TreeNode q){
+    public boolean iterateWay(TreeNode p, TreeNode q) {
         Stack<TreeNode> st1 = new Stack<>();
         Stack<TreeNode> st2 = new Stack<>();
-        if(q == null && p !=null || p == null && q!=null)return false;
+        if (q == null && p != null || p == null && q != null) return false;
         st1.push(p);
         st2.push(q);
-        while(!st1.isEmpty() && !st2.isEmpty()){
+        while (!st1.isEmpty() && !st2.isEmpty()) {
             TreeNode top1 = st1.pop();
             TreeNode top2 = st2.pop();
-            if(top1 == null && top2 ==null)continue;
-            if(top1 == null || top2 == null || top1.val != top2.val) return false;
+            if (top1 == null && top2 == null) continue;
+            if (top1 == null || top2 == null || top1.val != top2.val) return false;
             st1.push(top1.left);
             st1.push(top1.right);
             st2.push(top2.left);
@@ -44,4 +44,13 @@ public class Solution {
         }
         return true;
     }
+
+
+    public boolean isSame2(TreeNode root1, TreeNode root2) {
+        if (root2 == null && root1 == null) return true;
+        if (root2 == null || root1 == null || root2.val != root1.val) return false;
+        return isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right);
+    }
+
+
 }

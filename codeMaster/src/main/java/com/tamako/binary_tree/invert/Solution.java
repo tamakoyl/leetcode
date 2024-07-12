@@ -93,7 +93,7 @@ public class Solution {
         root.right = temp;
     }
 
-    //遍历的前序遍历
+    //递归的前序遍历
     public void invertPreOrderTraversal(TreeNode root) {
         //递归出口
         if (root == null) {

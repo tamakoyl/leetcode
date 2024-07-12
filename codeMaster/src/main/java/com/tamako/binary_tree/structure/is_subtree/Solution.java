@@ -10,6 +10,7 @@ import java.util.Stack;
  * @Description:572. 另一棵树的子树
  */
 public class Solution {
+    //todo 思路！
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         //需要比较root的每一个子树
         Stack<TreeNode> st = new Stack<>();
@@ -25,14 +26,44 @@ public class Solution {
     }
 
     // 判断树的结构是否相同
-    public boolean compare(TreeNode left,TreeNode right){
+    public boolean compare(TreeNode root1,TreeNode root2){
         //递归出口
-        if(left == null && right == null) return true;
-        if(left ==null || right == null || left.val != right.val) return false;
-        boolean l = compare(left.left,right.left);
-        boolean r = compare(left.right,right.right);
+        if(root1 == null && root2 == null) return true;
+        if(root1 ==null || root2 == null || root1.val != root2.val) return false;
+        boolean l = compare(root1.left,root2.left);
+        boolean r = compare(root1.right,root2.right);
         return l && r;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

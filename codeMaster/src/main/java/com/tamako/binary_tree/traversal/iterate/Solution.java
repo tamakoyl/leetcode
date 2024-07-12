@@ -17,6 +17,8 @@ public class Solution {
     private ArrayList<Integer> postorderList = new ArrayList<>();
     private ArrayList<Integer> inorderList = new ArrayList<>();
 
+    private List<Integer> res = new ArrayList<>();
+
     //todo 入栈 NRL 出 NLR
     public List<Integer> preorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
@@ -77,4 +79,26 @@ public class Solution {
         new Solution().inorderTraversal(treeNode1);
     }
 
+
+    //todo 单指针辅助
+    public List<Integer> inorder2(TreeNode root) {
+        Stack<TreeNode> st = new Stack<>();
+        if (root == null) return res;
+        st.push(root);
+        TreeNode cur = root;
+        while (!st.isEmpty() || cur != null) {
+            //一直往左走
+            if (cur != null) {
+                st.push(cur);
+                cur = cur.left;
+            } else {
+                TreeNode top = st.pop();
+                res.add(top.val);
+                cur = top.right;
+            }
+        }
+        return res;
+    }
+
+    
 }

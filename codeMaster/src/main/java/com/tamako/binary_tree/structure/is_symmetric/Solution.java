@@ -27,7 +27,7 @@ public class Solution {
     }
 
 
-    //迭代法： 使用两个栈 来比较左右子树是否对称
+    // todo 迭代法： 使用两个栈 来比较左右子树是否对称
     public boolean iterateWay(TreeNode root){
         Stack<TreeNode> stLeft = new Stack<>();
         Stack<TreeNode> stRight = new Stack<>();
@@ -51,6 +51,5 @@ public class Solution {
         }
         return true;
     }
-
 
 }

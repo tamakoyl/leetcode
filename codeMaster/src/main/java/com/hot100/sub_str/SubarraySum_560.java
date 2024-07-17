@@ -1,8 +1,8 @@
-package com.hot100.sub_seq;
+package com.hot100.sub_str;
 
 import java.util.HashMap;
 
-public class SubarraySum_560{
+public class SubarraySum_560 {
     public static void main(String[] args) {
 
     }
